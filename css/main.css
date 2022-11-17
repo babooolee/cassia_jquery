@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+body {
+    font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+}
+
+.slick-list,
+.slick-track {
+    transition-delay: 30ms;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    line-height: 100px;
+
+    color: #fff;
+
+    min-width: 1600px;
+}
+
+nav>ul {
+    display: flex;
+    gap: 30px;
+    font-size: 20px;
+}
+
+.header .right {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.mainVisual {
+    position: relative;
+    background: #ddd;
+}
+
+.mainVisual .itm {
+    background: #333;
+    height: 100vh;
+}
+
+.mainVisual .itm01 {
+    background: url(../images/bg_intro01.jpg) no-repeat center center/cover;
+}
+
+.mainVisual .itm02 {
+    background: url(../images/bg_intro02.jpg) no-repeat center center/cover;
+}
+
+.mainVisual .itm03 {
+    background: url(../images/bg_intro03.jpg) no-repeat center center/cover;
+}
+
+.mainVisual .slogan {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 1px #000;
+    width: 1200px;
+}
+
+.mainVisual .slogan strong {
+    display: block;
+    font-size: 40px;
+    margin: 0 0 20px 0;
+}
+
+.mainVisual .slogan h2 {
+    font-size: 80px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+}
+
+.mainVisual .slogan p {
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.mainVisual .slick-dots {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.mainVisual .slick-dots li {
+    position: relative;
+
+    display: inline-block;
+    width: 100px;
+    height: 6px;
+    background: #fff;
+    margin: 0 2px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.mainVisual .slick-dots li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: tomato;
+}
+
+.mainVisual .slick-dots li.slick-active::after {
+    width: 100%;
+    transition: 2s;
+}
+
+/* .mainVisual .slick-dots li.slick-active {
+    background: tomato;
+} */
+
+.mainVisual .slick-dots li button {
+    display: none;
+}
