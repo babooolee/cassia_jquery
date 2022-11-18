@@ -1,0 +1,11 @@
+$(function () {
+
+    $('.fullMain').fullpage({
+
+
+    })
+
+
+
+
+})
