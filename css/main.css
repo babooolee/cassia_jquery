@@ -769,6 +769,11 @@ nav>ul>li:hover .smenu {
         font-size: 0;
     }
 
+    .mopen button {
+        background: transparent;
+        border: none;
+    }
+
     .mopen button::before {
         content: "";
         position: absolute;

@@ -28,6 +28,13 @@ $('.mopen').on('click', function () {
 $('nav>ul>li>a').on('click', function (event) {
     var sm = $(this).next().is('.smenu');
     sm && event.preventDefault();
-    $('.smenu').stop().slideUp();
-    $(this).next().stop().slideDown();
+    if ($(window).width() < 769) {
+        $('.smenu').stop().slideUp();
+        $(this).next().stop().slideDown();
+    }
+
+});
+
+$(window).on('resize', function () {
+    $('.smenu').removeAttr('style')
 })
