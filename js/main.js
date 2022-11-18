@@ -21,5 +21,13 @@ $('.toTop').on('click', function () {
 });
 
 $('.mopen').on('click', function () {
+    $(this).toggleClass('on');
     $('nav').toggleClass('on')
+});
+
+$('nav>ul>li>a').on('click', function (event) {
+    var sm = $(this).next().is('.smenu');
+    sm && event.preventDefault();
+    $('.smenu').stop().slideUp();
+    $(this).next().stop().slideDown();
 })

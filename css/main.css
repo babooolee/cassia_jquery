@@ -8,6 +8,7 @@ body {
 .inner {
     width: 1200px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 .flex {
@@ -56,6 +57,61 @@ nav>ul {
     display: flex;
     gap: 30px;
     font-size: 20px;
+}
+
+nav>ul>li {
+    position: relative;
+}
+
+nav>ul>li a {
+    display: block;
+}
+
+nav>ul>li .smenu {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: #fff;
+
+    line-height: 30px;
+    width: 120px;
+    color: #444;
+    text-align: center;
+
+    border: 3px solid #deb887;
+    font-size: 14px;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+nav>ul>li .smenu::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    border: 3px solid #deb887;
+    background: #fff;
+    transform: translate(-50%, 0) rotate(45deg);
+}
+
+nav>ul>li .smenu li {
+    position: relative;
+    background: #fff;
+}
+
+nav>ul>li .smenu li~li {
+    border-top: 1px solid #ddd;
+}
+
+nav>ul>li:hover .smenu {
+    top: 80px;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s;
 }
 
 .header .right {
@@ -302,15 +358,7 @@ nav>ul {
 }
 
 .mopen {
-    position: fixed;
-    top: 30px;
-    right: 30px;
-    z-index: 999;
-
-    width: 30px;
-    height: 30px;
-    background: #333;
-    font-size: 0;
+    display: none;
 }
 
 
@@ -394,9 +442,71 @@ nav>ul {
         border-bottom: 1px solid #555;
     }
 
+    nav>ul>li {
+        position: relative;
+    }
+
+    nav>ul>li .smenu {
+        position: static;
+        top: 100px;
+        left: 50%;
+        transform: translate(0, 0);
+        background: #fff;
+
+        line-height: 30px;
+        width: auto;
+        color: #444;
+        text-align: center;
+
+        border: 3px solid #deb887;
+        font-size: 14px;
+
+        opacity: 1;
+        visibility: visible;
+
+        display: none;
+    }
+
+    nav>ul>li .smenu::before {
+        display: none;
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        width: 15px;
+        height: 15px;
+        border: 3px solid #deb887;
+        background: #fff;
+        transform: translate(-50%, 0) rotate(45deg);
+    }
+
+    nav>ul>li .smenu li {
+        position: relative;
+        background: #fff;
+    }
+
+    nav>ul>li .smenu li~li {
+        border-top: 1px solid #ddd;
+    }
+
+    nav>ul>li:hover .smenu {
+        top: 80px;
+        opacity: 1;
+        visibility: visible;
+        transition: none;
+    }
+
     .header .right {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        line-height: 1.5;
         font-size: 30px;
         font-weight: 700;
+        text-align: center;
+        background: tomato;
+        z-index: 999;
     }
 
     .mainVisual {
@@ -431,16 +541,19 @@ nav>ul {
         text-align: center;
         text-shadow: 0 0 1px #000;
         width: 100%;
+
+        padding: 0 15px;
+        word-break: keep-all;
     }
 
     .mainVisual .slogan strong {
         display: block;
-        font-size: 40px;
+        font-size: 4vw;
         margin: 0 0 20px 0;
     }
 
     .mainVisual .slogan h2 {
-        font-size: 80px;
+        font-size: 8vw;
         font-weight: 700;
         margin: 0 0 15px 0;
     }
@@ -461,8 +574,8 @@ nav>ul {
         position: relative;
 
         display: inline-block;
-        width: 100px;
-        height: 6px;
+        width: 20px;
+        height: 20px;
         background: #fff;
         margin: 0 2px;
         border-radius: 3px;
@@ -549,15 +662,17 @@ nav>ul {
     }
 
     .customer h2 {
-        font-size: 30px;
+        font-size: 5vw;
         font-weight: 500;
         margin: 0 0 25px 0;
         text-shadow: 0 0 1px #000;
+        word-break: keep-all;
+        padding: 0 15px;
     }
 
     .customer h2 span {
         display: block;
-        line-height: 40px;
+        line-height: 1.45;
     }
 
     .customer .flex {
@@ -590,10 +705,11 @@ nav>ul {
     }
 
     .footer {
-        padding: 50px 0;
+        padding: 50px 0 100px 0;
         font-size: 13px;
         font-weight: 300;
-        color: #555;
+        color: #fff;
+        background: #555;
     }
 
     .footer>ul {
@@ -602,14 +718,15 @@ nav>ul {
     }
 
     .footer>ul>li {
-        display: inline-block;
-        margin: 0 20px;
+        display: block;
+        margin: 5px 0;
         position: relative;
 
         font-size: 13px;
     }
 
     .footer>ul>li~li::before {
+        display: none;
         content: "";
         position: absolute;
         top: 50%;
@@ -622,18 +739,91 @@ nav>ul {
 
     .toTop {
         position: fixed;
-        bottom: 100px;
-        right: 100px;
+        bottom: 0;
+        right: 0;
 
         display: none;
+        z-index: 999;
     }
 
     .toTop i {
-        font-size: 40px;
-        background: tomato;
+        font-size: 25px;
+        background: #333;
         color: #fff;
-        border-radius: 50%;
+        border-radius: 0;
         cursor: pointer;
         padding: 10px;
     }
+
+    .mopen {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        z-index: 999;
+
+        display: block;
+
+        width: 30px;
+        height: 30px;
+        background: #333;
+        font-size: 0;
+    }
+
+    .mopen button::before {
+        content: "";
+        position: absolute;
+        top: 7px;
+        left: 5px;
+        right: 5px;
+        height: 1px;
+        background: #fff;
+    }
+
+    .mopen.on button::before {
+        display: none;
+    }
+
+    .mopen button::after {
+        content: "";
+        position: absolute;
+        bottom: 7px;
+        left: 5px;
+        right: 5px;
+        height: 1px;
+        background: #fff;
+    }
+
+    .mopen.on button::after {
+        display: none;
+    }
+
+    .mopen span::before {
+        content: "";
+        position: absolute;
+        top: calc(50% - 1px);
+        left: 5px;
+        right: 5px;
+        height: 1px;
+        background: #fff;
+    }
+
+    .mopen.on span::before {
+        transform: rotate(-45deg);
+    }
+
+    .mopen span::after {
+        content: "";
+        position: absolute;
+        top: calc(50% - 1px);
+        left: 5px;
+        right: 5px;
+        height: 1px;
+        background: #fff;
+    }
+
+    .mopen.on span::after {
+        transform: rotate(45deg);
+    }
+
+
 }
